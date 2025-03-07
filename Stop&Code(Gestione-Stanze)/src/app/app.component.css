@@ -1,0 +1,72 @@
+/* Container generale */
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Container delle stanze da prenotare e quelle prenotate */
+.room-container{
+    width: 50%;
+    border-radius: 8px;
+}
+
+/* Stile di ogni stanza */
+.if{
+    width: 100%;
+}
+
+.room{
+    width: 70%;
+/*     display: flex;
+    justify-content: space-between; */
+    /* align-items: flex-end; */
+    border: 0.5px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.room div{
+    display: flex; 
+    justify-content: space-between; align-items: flex-end;
+}
+/* .border-room{
+    width: 70%;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    
+} */
+
+/* Effetto "hover" sulla stanza da prenotare */
+.room.disponibile:hover{
+    background-color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+/* Il prezzo delle stanze */
+.price{
+    background-color: #0f5cd9;
+    color: #fff;
+    padding: 5px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Bottone per rimuovere la prenotazione */
+.remove{
+    width: 100px;
+    background-color: #fa4353;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* Effetto "hover" sul bottone "Rimuovi pagamento" */
+.remove:hover{
+    background-color: #88323a;
+}

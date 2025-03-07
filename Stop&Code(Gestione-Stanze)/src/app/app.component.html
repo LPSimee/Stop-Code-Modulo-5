@@ -1,0 +1,44 @@
+<!-- Header -->
+<app-header></app-header>
+
+
+<!-- Stanze dell'albergo -->
+<div class="container">
+    
+    <!-- Stanze disponibili -->
+    <div class="room-container">
+        <h2>Stanze disponibili: </h2>
+        
+        <div *ngFor="let room of stanzeDisp; let i=index">
+            <!-- <div class="border-room"> -->
+            <div class="room disponibile" *ngIf="room.disponibile == true" (click)="prenota(room.id, i)">
+                <!-- <p>{{room.id}}</p> -->
+                <p><b>Tipologia: </b> <span>{{room.tipologia}}</span></p>
+                <div>
+                    <p>{{room.descrizione}}</p>
+                    <span class="price">{{room.prezzo | currency}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stanze prenotate -->
+    <div class="room-container">
+        <h2>Stanze prenotate: </h2>
+
+        <!-- <div class="border-room"> -->
+            <div class="room" *ngFor="let room of stanzePren; let i=index">
+                    <p>Tipologia: {{room.tipologia}}</p>
+                <div>
+                    <p>{{room.descrizione}}</p>
+                
+                <!-- <p class="price">{{room.prezzo | currency}}</p> -->
+                <button class="remove" (click)="rimuoviPrenotazione(i, room.id)">Rimuovi prenotazione</button>
+                </div>
+            </div>
+        <!-- </div> -->
+        <div><b>Incasso: </b> <span>{{totale | currency}}</span></div>
+    </div>
+</div>
+
+<router-outlet />
