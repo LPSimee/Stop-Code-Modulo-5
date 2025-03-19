@@ -1,0 +1,33 @@
+<!-- Componente principale -->
+<div class="container mt-5" *ngIf="isListVisible">
+  <h1 class="text-center mb-4">Lista dei Task</h1>
+  <div *ngIf="todoList.length > 0">
+    <ul class="list-group">
+      <li *ngFor="let task of todoList" class="list-group-item d-flex justify-content-between align-items-center" [class.list-group-item-success]="task.completato">
+        <div class="d-flex align-items-center">
+          <input type="checkbox" [checked]="task.completato" (change)="toggleCompletion(task)" class="form-check-input me-3">
+          <div>
+            <h5 class="mb-1" [class.text-decoration-line-through]="task.completato">{{ task.titolo }}</h5>
+            <p class="mb-0"><strong>Data di esecuzione:</strong> {{ task.data_esecuzione | date:'dd/MM/yyyy' }}</p>
+          </div>
+          <div class="occhio"><a href="#" (click)="showDetails(task)"><i class="fa-solid fa-eye"></i></a></div>
+        </div>
+        <span class="badge" [ngClass]="task.completato ? 'bg-success' : 'bg-danger'">{{task.completato? "Completato": "Non completato"}}</span>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="todoList.length == 0">
+    <p class="text-center">Nessun task presente nella lista.</p>
+  </div>
+  <div class="mt-3">
+    <button class="btn btn-primary" (click)="showAddTask()">Aggiungi Task</button>
+  </div>
+</div>
+
+<!-- Componente "dettagli" di una task -->
+<app-detail-task *ngIf="isTaskDetailsVisible" [task] = "taskDetails" (backToListEvent) = "backToList()" (deleteTaskEvent)="deleteTaskFromDetails(taskDetails)"></app-detail-task>
+
+<!-- Componente "Aggiungi task" -->
+<app-add-task *ngIf="isAddTaskVisible" (backToListEvent) = "backToList()" (addTaskEvent) = "addTask($event)"></app-add-task>
+
+<router-outlet />

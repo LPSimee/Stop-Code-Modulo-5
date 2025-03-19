@@ -1,0 +1,30 @@
+<!-- Component "detail-task" -->
+<div class="container mt-5">
+  <div class="d-flex align-items-center justify-content-center mb-4">
+    <!-- Tasto back -->
+    <button class="btn btn-light d-flex align-items-center" (click)="returnToList()">
+      <a href="#"><i class="fa-solid fa-arrow-left"></i></a>
+    </button>
+    <!-- Titolo pagina -->
+    <h1 class="m-0 flex-grow-1 text-center">Dettagli Task</h1>
+    <!-- Tasto elimina task -->
+    <button class="btn btn-danger cancella d-flex align-items-center" (click)="deleteTask()">
+      <a href="#"><i class="fa-solid fa-x"></i></a>
+    </button>
+  </div>
+
+  <div class="list-group">
+    <!-- Dettagli del task selezionato -->
+    <div class="list-group-item d-flex justify-content-between align-items-center" [class.list-group-item-success]="task.completato">
+      <div class="d-flex align-items-center">
+        <input type="checkbox" [checked]="task.completato" (change)="toggleCompletion()" class="form-check-input me-3"> 
+        <div>
+          <h5 class="mt-2 mb-4" [class.text-decoration-line-through]="task.completato">{{ task.titolo }}</h5>
+          <p class="mb-2">{{task.descrizione}}</p>
+          <p class="mb-2"><strong>Data di esecuzione:</strong> {{ task.data_esecuzione | date:'dd/MM/yyyy' }}</p>
+        </div>
+      </div>
+      <span class="badge" [ngClass]="task.completato ? 'bg-success' : 'bg-danger'">{{task.completato? "Completato": "Non completato"}}</span>
+    </div>
+  </div>
+</div>

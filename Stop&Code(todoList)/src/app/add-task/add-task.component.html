@@ -1,0 +1,47 @@
+<!-- Component "add-task" -->
+<div class="container mt-5">
+  <div class="d-flex align-items-center justify-content-center mb-4">
+    <!-- Tasto back -->
+    <button class="btn btn-light d-flex align-items-center" (click)="returnToList()">
+      <a href="#"><i class="fa-solid fa-arrow-left"></i></a>
+    </button>
+    <!-- Titolo pagina -->
+    <h1 class="m-0 flex-grow-1 text-center">Aggiungi una nuova task</h1>
+  </div>
+  <div class="container">
+  <div class="d-flex justify-content-center">
+    <form class="w-50" (ngSubmit)="addTask($event)">
+    
+      <!-- Titolo task -->
+      <div class="mb-3">
+        <label for="titoloTask" class="form-label">Nome task: </label>
+        <input type="text" class="form-control mx-auto" id="titoloTask" name="taskTitle"[(ngModel)] = "taskTitle">
+        <div *ngIf="isTitleIncorrect">
+          <span class="form-text text-danger">Titolo non valido. Inserisci un titolo valido.</span>
+        </div>
+      </div>
+    
+      <!-- Descrizione -->
+      <div class="mb-3">
+        <label for="descrizioneTask" class="form-label">Descrizione: </label>
+        <input type="text" class="form-control" id="descrizioneTask" name="taskDescription" [(ngModel)]="taskDescription">
+        <div *ngIf="isDescriptionIncorrect">
+          <span class="form-text text-danger">Descrizione non valida. Inserisci una descrizione valida.</span>
+        </div>
+      </div>
+    
+      <!-- Data di esecuzione -->
+      <div class="mb-4">
+        <label for="dataTask" class="form-label">Data di esecuzione: </label>
+        <input type="date" class="form-control" id="dataTask" name="dataEsecuzione" required name="taskDate" [(ngModel)]="taskDate">
+        <div *ngIf="isDateIncorrect">
+          <span class="form-text text-danger">Data non valida. Inserisci una data valida.</span>
+        </div>
+      </div>
+    
+      <!-- Bottone per il caricamento dei dati del nuovo task -->
+      <button type="submit" class="btn btn-primary">Aggiungi</button>
+    </form>
+  </div>
+  </div>
+</div>
