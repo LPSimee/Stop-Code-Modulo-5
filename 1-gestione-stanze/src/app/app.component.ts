@@ -12,9 +12,7 @@ export type room = { id: number, tipologia: tipoStanza, descrizione: string, pre
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
-    roomList: Array<room>[];
-
-    resetvedRooms: Array<room> = [
+    roomList: Array<room> = [
         {
             id: 1,
             tipologia: "singola",
@@ -64,5 +62,8 @@ export class AppComponent {
             prezzo: 75,
             disponibile: false
         }
+
     ];
+
+    reservedRooms: Array<room>[];
 }
