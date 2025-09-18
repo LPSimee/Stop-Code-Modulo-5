@@ -1,11 +1,22 @@
 <app-header></app-header>
+<hr />
 
 <!-- Main content -->
-
 <!-- Rooms available -->
-<div></div>
+<h2>Stanze disponibili:</h2>
+<div class="room-ctn">
+    <ng-container *ngFor="let room of roomList">
+        <div class="room-item" *ngIf="room.disponibile">
+            <p><strong>Tipologia: </strong>{{ room.id }}</p>
+            <p>{{ room.tipologia }}</p>
+            <p>{{ room.descrizione }}</p>
+            <p>{{ room.prezzo }}$</p>
+        </div>
+    </ng-container>
+</div>
 
 <!-- Reserved rooms -->
+<h2>Stanze prenotate:</h2>
 <div></div>
-<router-outlet />
 <app-footer></app-footer>
+<router-outlet />

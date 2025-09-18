@@ -12,6 +12,7 @@ export type room = { id: number, tipologia: tipoStanza, descrizione: string, pre
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
     roomList: Array<room> = [
         {
             id: 1,
