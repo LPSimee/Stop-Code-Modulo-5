@@ -1,14 +1,25 @@
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 30px 70px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .room-ctn {
+    flex-grow: 1;
     max-width: 500px;
     border: 1px solid black;
     border-radius: 8px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
+
     .room-item {
         padding: 0 20px;
         border-bottom: 1px solid black;
         display: flex;
         justify-content: space-between;
         align-items: last baseline;
+        cursor: pointer;
 
         .room-price {
             background-color: #183059;
@@ -20,6 +31,10 @@
 
         &:last-of-type {
             border-bottom: none;
+        }
+
+        &:hover {
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
         }
     }
 }

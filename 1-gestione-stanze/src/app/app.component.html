@@ -2,21 +2,41 @@
 
 <!-- Main content -->
 <!-- Rooms available -->
-<h2>Stanze disponibili:</h2>
-<div class="room-ctn">
-    <ng-container *ngFor="let room of roomList">
-        <div class="room-item" *ngIf="room.disponibile">
-            <div>
-                <p><strong>Tipologia: </strong>{{ room.tipologia }}</p>
-                <p>{{ room.descrizione }}</p>
-            </div>
-            <div class="room-price">{{ room.prezzo }}$</div>
+<main>
+    <div class="main-grid-item">
+        <h2>Stanze disponibili:</h2>
+        <div class="room-ctn">
+            <ng-container *ngFor="let room of roomList">
+                <div
+                    class="room-item"
+                    *ngIf="room.disponibile"
+                    (click)="reserveRoom()"
+                >
+                    <div>
+                        <p><strong>Tipologia: </strong>{{ room.tipologia }}</p>
+                        <p>{{ room.descrizione }}</p>
+                    </div>
+                    <div class="room-price">{{ room.prezzo }}$</div>
+                </div>
+            </ng-container>
         </div>
-    </ng-container>
-</div>
+    </div>
 
-<!-- Reserved rooms -->
-<h2>Stanze prenotate:</h2>
-<div></div>
+    <div class="main-grid-item">
+        <!-- Reserved rooms -->
+        <h2>Stanze prenotate:</h2>
+        <div class="room-ctn">
+            <ng-container *ngFor="let room of roomList">
+                <div class="room-item" *ngIf="room.disponibile">
+                    <div>
+                        <p><strong>Tipologia: </strong>{{ room.tipologia }}</p>
+                        <p>{{ room.descrizione }}</p>
+                    </div>
+                    <div class="room-price">{{ room.prezzo }}$</div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</main>
 <app-footer></app-footer>
 <router-outlet />
