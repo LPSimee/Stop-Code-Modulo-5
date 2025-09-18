@@ -26,18 +26,23 @@
         <!-- Reserved rooms -->
         <h2>Stanze prenotate:</h2>
         <div class="room-ctn">
-            <ng-container *ngFor="let room of reservedRooms">
+            <ng-container *ngFor="let room of reservedRooms; let i = index">
                 <div class="room-item" *ngIf="room.disponibile">
                     <div>
                         <p><strong>Tipologia: </strong>{{ room.tipologia }}</p>
                         <p>{{ room.descrizione }}</p>
                     </div>
-                    <div class="room-price">{{ room.prezzo }}$</div>
+                    <button
+                        class="remove-room"
+                        (click)="cancelReservation(room.id, index)"
+                    >
+                        Rimuovi prenotazione
+                    </button>
                 </div>
             </ng-container>
         </div>
 
-        <p><strong>Incasso: </strong>a$</p>
+        <p><strong>Incasso: </strong>{{ totalPrice }}$</p>
     </div>
 </main>
 <app-footer></app-footer>

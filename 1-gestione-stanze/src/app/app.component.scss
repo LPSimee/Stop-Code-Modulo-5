@@ -29,6 +29,17 @@ main {
             border-radius: 5px;
         }
 
+        .remove-room {
+            background-color: #f03a47;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            &:hover {
+                background-color: #f03a47;
+            }
+        }
+
         &:last-of-type {
             border-bottom: none;
         }

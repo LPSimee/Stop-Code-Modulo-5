@@ -70,12 +70,19 @@ export class AppComponent {
 
     totalPrice: number = 0;
 
-    reserveRoom(id: number, index: number) {
-        // this.totalPrice += priceTag;
-
+    reserveRoom(id: number, index: number): void {
         let selectedRoom = this.roomList.find(room => room.id == id);
         this.totalPrice += selectedRoom.prezzo;
         this.reservedRooms.push(selectedRoom);
         this.roomList.splice(index, 1);
+    }
+
+    cancelReservation(id: number, index: number): void {
+        console.log(this.reservedRooms)
+        let canceledRoom = this.reservedRooms.find(room => room.id == id);
+        this.totalPrice -= canceledRoom.prezzo;
+        this.reservedRooms.splice(index, 1);
+        this.roomList.splice(index, 0, canceledRoom);
+        console.log(this.totalPrice)
     }
 }
