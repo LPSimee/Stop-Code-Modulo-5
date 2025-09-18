@@ -2,13 +2,14 @@
     max-width: 500px;
     border: 1px solid black;
     border-radius: 8px;
-
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
     .room-item {
-        padding: 12px 10px;
+        padding: 0 20px;
         border-bottom: 1px solid black;
         display: flex;
         justify-content: space-between;
         align-items: last baseline;
+
         .room-price {
             background-color: #183059;
             color: white;
