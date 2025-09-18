@@ -6,11 +6,11 @@
     <div class="main-grid-item">
         <h2>Stanze disponibili:</h2>
         <div class="room-ctn">
-            <ng-container *ngFor="let room of roomList">
+            <ng-container *ngFor="let room of roomList; let i = index">
                 <div
                     class="room-item"
                     *ngIf="room.disponibile"
-                    (click)="reserveRoom()"
+                    (click)="reserveRoom(room.id, i)"
                 >
                     <div>
                         <p><strong>Tipologia: </strong>{{ room.tipologia }}</p>
@@ -26,7 +26,7 @@
         <!-- Reserved rooms -->
         <h2>Stanze prenotate:</h2>
         <div class="room-ctn">
-            <ng-container *ngFor="let room of roomList">
+            <ng-container *ngFor="let room of reservedRooms">
                 <div class="room-item" *ngIf="room.disponibile">
                     <div>
                         <p><strong>Tipologia: </strong>{{ room.tipologia }}</p>
@@ -36,6 +36,8 @@
                 </div>
             </ng-container>
         </div>
+
+        <p><strong>Incasso: </strong>a$</p>
     </div>
 </main>
 <app-footer></app-footer>

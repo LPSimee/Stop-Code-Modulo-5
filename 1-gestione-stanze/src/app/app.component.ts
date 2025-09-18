@@ -66,10 +66,16 @@ export class AppComponent {
 
     ];
 
-    reservedRooms: Array<room>[];
+    reservedRooms: Array<room> = [];
 
+    totalPrice: number = 0;
 
-    reserveRoom() {
+    reserveRoom(id: number, index: number) {
+        // this.totalPrice += priceTag;
 
+        let selectedRoom = this.roomList.find(room => room.id == id);
+        this.totalPrice += selectedRoom.prezzo;
+        this.reservedRooms.push(selectedRoom);
+        this.roomList.splice(index, 1);
     }
 }
