@@ -1,4 +1,24 @@
 .room-ctn {
+    max-width: 500px;
     border: 1px solid black;
     border-radius: 8px;
+
+    .room-item {
+        padding: 12px 10px;
+        border-bottom: 1px solid black;
+        display: flex;
+        justify-content: space-between;
+        align-items: last baseline;
+        .room-price {
+            background-color: #183059;
+            color: white;
+            font-weight: bold;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        &:last-of-type {
+            border-bottom: none;
+        }
+    }
 }

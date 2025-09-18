@@ -1,5 +1,4 @@
 <app-header></app-header>
-<hr />
 
 <!-- Main content -->
 <!-- Rooms available -->
@@ -7,10 +6,11 @@
 <div class="room-ctn">
     <ng-container *ngFor="let room of roomList">
         <div class="room-item" *ngIf="room.disponibile">
-            <p><strong>Tipologia: </strong>{{ room.id }}</p>
-            <p>{{ room.tipologia }}</p>
-            <p>{{ room.descrizione }}</p>
-            <p>{{ room.prezzo }}$</p>
+            <div>
+                <p><strong>Tipologia: </strong>{{ room.tipologia }}</p>
+                <p>{{ room.descrizione }}</p>
+            </div>
+            <div class="room-price">{{ room.prezzo }}$</div>
         </div>
     </ng-container>
 </div>
