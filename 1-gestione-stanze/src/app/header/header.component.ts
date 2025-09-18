@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
     styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-    title = '1-gestione-stanze';
+    title = 'Gestionale stanze';
 }
