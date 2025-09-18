@@ -14,7 +14,7 @@ export type room = { id: number, tipologia: tipoStanza, descrizione: string, pre
 export class AppComponent {
     roomList: Array<room>[];
 
-    bookedRooms: Array<room> = [
+    resetvedRooms: Array<room> = [
         {
             id: 1,
             tipologia: "singola",
