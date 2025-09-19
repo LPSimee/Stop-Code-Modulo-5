@@ -77,12 +77,12 @@ export class AppComponent {
         this.roomList.splice(index, 1);
     }
 
-    cancelReservation(id: number, index: number): void {
-        console.log(this.reservedRooms)
-        let canceledRoom = this.reservedRooms.find(room => room.id == id);
-        this.totalPrice -= canceledRoom.prezzo;
-        this.reservedRooms.splice(index, 1);
-        this.roomList.splice(index, 0, canceledRoom);
-        console.log(this.totalPrice)
+    cancelReservation(room): void {
+        const indexToRemove = this.reservedRooms.findIndex(r => r.id === room.id);
+        if (indexToRemove > -1) { // Assicurati che l'elemento esista
+            this.totalPrice -= room.prezzo;
+            this.reservedRooms.splice(indexToRemove, 1);
+            this.roomList.push(room);
+        }
     }
 }
