@@ -1,11 +1,13 @@
 <div class="container mt-3">
     <div class="d-flex flex-wrap justify-content-center">
         <div class="card m-2" *ngFor="let photo of selectedAlbum">
-            <img
-                [src]="getRandomBgColor()"
-                class="card-img-top"
-                alt="thumbnail"
-            />
+            <a [href]="photo.imgUrl" target="_blank">
+                <img
+                    [src]="photo.imgUrl"
+                    class="card-img-top"
+                    alt="thumbnail"
+                />
+            </a>
             <div class="card-body">
                 <p class="card-text">{{ photo.title }}</p>
             </div>
