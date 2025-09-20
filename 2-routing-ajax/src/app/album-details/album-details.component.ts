@@ -1,11 +1,50 @@
 import { Component } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
+import { AlbumService } from '../services/album.service';
 @Component({
-  selector: 'app-album-details',
-  standalone: false,
-  templateUrl: './album-details.component.html',
-  styleUrl: './album-details.component.scss'
+    selector: 'app-album-details',
+    standalone: false,
+    templateUrl: './album-details.component.html',
+    styleUrl: './album-details.component.scss'
 })
 export class AlbumDetailsComponent {
 
-}
+    constructor(private route: ActivatedRoute, private httpService: AlbumService) { }
+
+    selectedAlbum: any[];
+
+    ngOnInit(): void {
+        console.log(this.route.snapshot.params.id);
+        const id = this.route.snapshot.params.id;
+
+        this.getAlbumDetails(id);
+    } // ngOnInit()
+
+    getAlbumDetails(id: number): void {
+        this.httpService.getAlbumById(id).subscribe(
+            {
+                next: (album) => {
+                    console.log(album);
+                    this.selectedAlbum = album;
+                },
+                error: (error) => console.log("Error:", error)
+            }
+        );
+    } // getAlbumDetails()
+
+    // Since the "url" and "thumbnailUrl" properties links are no longer available, I will use https://placehold.co/ instead for the image of each photo in the album
+    // Method that generates a random color in hexadecimal format
+    getRandomBgColor(): string {
+        const letters = '0123456789ABCDEF';
+        let color = '';
+
+        // Instead of generating a full color, I will generate only the first 6 characters after the #
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+
+        // Scheme: the first color is for the background while the second is for the text color of the image(150x150)
+        return `https://placehold.co/150x150/${color}/A3A3A3.png`;
+    } // getRandomBgColor()
+} // AlbumDetailsComponent
+

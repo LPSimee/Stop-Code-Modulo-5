@@ -1,1 +1,14 @@
-<p>album-details works!</p>
+<div class="container mt-3">
+    <div class="d-flex flex-wrap justify-content-center">
+        <div class="card m-2" *ngFor="let photo of selectedAlbum">
+            <img
+                [src]="getRandomBgColor()"
+                class="card-img-top"
+                alt="thumbnail"
+            />
+            <div class="card-body">
+                <p class="card-text">{{ photo.title }}</p>
+            </div>
+        </div>
+    </div>
+</div>
