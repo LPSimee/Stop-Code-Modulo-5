@@ -1,0 +1,4 @@
+Links alle API:
+https://jsonplaceholder.typicode.com/
+https://jsonplaceholder.typicode.com/albums
+https://jsonplaceholder.typicode.com/photos?albumId=7
