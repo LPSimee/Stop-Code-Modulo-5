@@ -6,19 +6,20 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AlbumListComponent } from './album-list/album-list.component';
 import { AlbumDetailsComponent } from './album-details/album-details.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    AlbumListComponent,
-    AlbumDetailsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        AlbumListComponent,
+        AlbumDetailsComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule
+    ],
+    providers: [provideHttpClient()],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
