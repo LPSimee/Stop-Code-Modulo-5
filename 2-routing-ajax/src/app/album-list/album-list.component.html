@@ -1,1 +1,9 @@
-<p>album-list works!</p>
+<div class="container mt-3">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let album of albumList">
+            <a [routerLink]="['/albums', album.id]" class="text-primary">{{
+                album.title
+            }}</a>
+        </li>
+    </ul>
+</div>
