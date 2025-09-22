@@ -1,5 +1,36 @@
 <app-header></app-header>
+<div class="container my-4">
+    <div>
+        <h1>Preferiti</h1>
+        <div class="alert alert-light" role="alert">
+            A simple light alert—check it out!
+        </div>
+        <button class="btn btn-danger">Svuota</button>
+    </div>
 
-<router-outlet />
+    <hr />
 
+    <div>
+        <h1>Posts</h1>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-outline-secondary">
+                Tutti
+            </button>
+            <button type="button" class="btn btn-outline-secondary">
+                Viaggi
+            </button>
+            <button type="button" class="btn btn-outline-secondary">
+                Cucina
+            </button>
+            <button type="button" class="btn btn-outline-secondary">
+                Moda
+            </button>
+        </div>
+
+        <!-- Dove mettere il componente sicuramente -->
+        <div></div>
+    </div>
+    <router-outlet />
+</div>
 <app-footer></app-footer>
