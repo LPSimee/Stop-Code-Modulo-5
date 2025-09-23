@@ -2,11 +2,20 @@
 <div class="container my-4">
     <div>
         <h1>Preferiti</h1>
-        <div class="alert alert-light" role="alert">
-            A simple light alert—check it out!
-            <button type="button" class="btn-close" aria-label="Close"></button>
-        </div>
-        <button class="btn btn-danger">Svuota</button>
+        <ng-container *ngFor="let post of favoritePosts">
+            <div class="alert alert-light" role="alert">
+                {{ post }}
+                <button
+                    type="button"
+                    class="btn-close"
+                    aria-label="Close"
+                    (click)="removeFromFavorites(post)"
+                ></button>
+            </div>
+        </ng-container>
+        <button class="btn btn-danger" (click)="clearFavoriteList()">
+            Svuota
+        </button>
     </div>
 
     <hr />
@@ -44,7 +53,10 @@
                         <p class="card-text">
                             {{ post.body }}
                         </p>
-                        <button class="btn btn-primary">
+                        <button
+                            class="btn btn-primary"
+                            (click)="addToFavorites(post.title)"
+                        >
                             Aggiungi ai preferiti
                         </button>
                     </div>

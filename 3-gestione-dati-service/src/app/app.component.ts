@@ -19,6 +19,8 @@ export class AppComponent {
     activeTabIndex = 0;
     activeTabCategory = 'all';
 
+    favoritePosts: string[] = []; // Array to hold favorite posts
+
     constructor(private postService: PostService) { }
 
     ngOnInit(): void {
@@ -51,5 +53,19 @@ export class AppComponent {
         this.activeTabIndex = index;
         this.activeTabCategory = this.tabs[index].category;
         this.getPostsByCategory(this.activeTabCategory);
+    }
+
+    addToFavorites(postTitle: string) {
+        if (!this.favoritePosts.includes(postTitle)) {
+            this.favoritePosts.push(postTitle);
+        }
+    }
+
+    removeFromFavorites(postTitle: string) {
+        this.favoritePosts = this.favoritePosts.filter(title => title !== postTitle);
+    }
+
+    clearFavoriteList() {
+        this.favoritePosts = [];
     }
 }
