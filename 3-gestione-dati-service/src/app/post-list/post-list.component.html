@@ -1,1 +1,19 @@
-<p>post-list works!</p>
+<div class="my-4">
+    <ng-container *ngFor="let post of postList">
+        <div class="card mb-2">
+            <div class="card-body">
+                <h4 class="card-title">{{ post.title }}</h4>
+                <h5 class="card-subtitle mb-2 text-body-secondary">
+                    {{ post.category }}
+                </h5>
+                <p class="card-text fst-italic">
+                    Data pubblicazione: {{ post.date | date }}
+                </p>
+                <p class="card-text">
+                    {{ post.body }}
+                </p>
+                <button class="btn btn-primary">Aggiungi ai preferiti</button>
+            </div>
+        </div>
+    </ng-container>
+</div>

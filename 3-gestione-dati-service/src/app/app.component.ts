@@ -8,7 +8,16 @@ import { PostService } from './service/post.service';
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
+    tabs = [
+        { name: 'Tutti', category: 'all' },
+        { name: 'Viaggi', category: 'travel' },
+        { name: 'Cucina', category: 'cuisine' },
+        { name: 'Moda', category: 'fashion' }
+    ];
     postList: any[]; // Array to hold the list of posts
+
+    activeTabIndex = 0;
+    activeTabCategory = 'all';
 
     constructor(private postService: PostService) { }
 
@@ -30,6 +39,20 @@ export class AppComponent {
     // }
 
     getPostsByCategory(category: string) {
-        return this.postService.getPostsByCategory(category);
+        this.postService.getPostsByCategory(category).subscribe(
+            {
+                next: (data) => {
+                    console.log(data);
+                    this.postList = data;
+                },
+                error: (error) => console.error("Error:", error),
+                complete: () => console.log("Completed")
+            }
+        );
+    }
+
+    selectTab(index: number) {
+        this.activeTabIndex = index;
+        this.activeTabCategory = this.tabs[index].category;
     }
 }

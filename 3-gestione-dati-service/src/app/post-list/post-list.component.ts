@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-post-list',
-  standalone: false,
-  templateUrl: './post-list.component.html',
-  styleUrl: './post-list.component.scss'
+    selector: 'app-post-list',
+    standalone: false,
+    templateUrl: './post-list.component.html',
+    styleUrl: './post-list.component.scss'
 })
 export class PostListComponent {
-
+    @Input() postList: any[];
 }

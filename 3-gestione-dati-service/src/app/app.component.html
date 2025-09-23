@@ -4,6 +4,7 @@
         <h1>Preferiti</h1>
         <div class="alert alert-light" role="alert">
             A simple light alert—check it out!
+            <button type="button" class="btn-close" aria-label="Close"></button>
         </div>
         <button class="btn btn-danger">Svuota</button>
     </div>
@@ -14,17 +15,17 @@
         <h1>Posts</h1>
 
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-outline-secondary">
-                Tutti
-            </button>
-            <button type="button" class="btn btn-outline-secondary">
-                Viaggi
-            </button>
-            <button type="button" class="btn btn-outline-secondary">
-                Cucina
-            </button>
-            <button type="button" class="btn btn-outline-secondary">
-                Moda
+            <button
+                type="button"
+                class="btn"
+                [ngClass]="{
+                    'btn-secondary': activeTabIndex === i,
+                    'btn-outline-secondary': activeTabIndex !== i
+                }"
+                *ngFor="let tab of tabs; let i = index"
+                (click)="selectTab(i)"
+            >
+                {{ tab.name }}
             </button>
         </div>
 
