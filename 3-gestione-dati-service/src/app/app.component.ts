@@ -9,9 +9,9 @@ import { PostService } from './service/post.service';
 })
 export class AppComponent {
     tabs = [
-        { name: 'Tutti', category: 'all' },
+        { name: 'Tutti', category: '' }, // since 'all' is not a category in the API, we use an empty string to fetch all posts
         { name: 'Viaggi', category: 'travel' },
-        { name: 'Cucina', category: 'cuisine' },
+        { name: 'Cucina', category: 'food' },
         { name: 'Moda', category: 'fashion' }
     ];
     postList: any[]; // Array to hold the list of posts
@@ -34,10 +34,6 @@ export class AppComponent {
         );
     }
 
-    // getPosts() {
-    //     return this.postService.getPosts();
-    // }
-
     getPostsByCategory(category: string) {
         this.postService.getPostsByCategory(category).subscribe(
             {
@@ -54,5 +50,6 @@ export class AppComponent {
     selectTab(index: number) {
         this.activeTabIndex = index;
         this.activeTabCategory = this.tabs[index].category;
+        this.getPostsByCategory(this.activeTabCategory);
     }
 }
