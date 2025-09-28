@@ -8,6 +8,8 @@ import { PostService } from './service/post.service';
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
+    title = '3-gestione-dati-service';
+
     tabs = [
         { name: 'Tutti', category: '' }, // since 'all' is not a category in the API, we use an empty string to fetch all posts
         { name: 'Viaggi', category: 'travel' },
